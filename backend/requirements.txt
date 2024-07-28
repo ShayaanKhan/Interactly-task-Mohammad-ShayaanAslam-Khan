@@ -1,7 +1,0 @@
-transformers
-torch
-pandas
-faiss-cpu
-sentence-transformers
-flask
-flask-cors
