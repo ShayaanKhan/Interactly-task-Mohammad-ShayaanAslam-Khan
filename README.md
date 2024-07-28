@@ -1,102 +1,48 @@
-# Job Description Matching System
+## Installation
 
-This project is a job description matching system that uses a fine-tuned BERT model, Elasticsearch for candidate profile retrieval, and a Flask backend with a React frontend.
+1. **Set up a Python virtual environment**:
+   python3 -m venv env
+   source env/bin/activate
 
-## Setup and Installation
-
-### Prerequisites
-
-- Python 3.7+
-- Node.js and npm
-- Elasticsearch
-- MongoDB
-
-### Backend Setup
-
-1. **Clone the repository**
-
-   
-   git clone https://github.com/yourusername/job-matching-system.git
-   cd job-matching-system/backend
-   
-
-2. **Install Python dependencies**
-
-   
+2. **Install the required packages**:
    pip install -r requirements.txt
-   
 
-3. **Set Up Elasticsearch and MongoDB**
-
-   Make sure you have Elasticsearch and MongoDB running locally.
-
-4. **Database Setup**
-
-   Run the `database_setup.py` script to load and index the candidate data.
-
-   
-   python database_setup.py
-   
-
-5. **Model Fine-Tuning**
-
-   Run the `model_finetuning.py` script to fine-tune the BERT model using the provided `resumes.csv` dataset.
-
-   
-   python model_finetuning.py
-   
-
-6. **Start the Flask Application**
-
-   Run the Flask application.
-
-   
-   python app.py
-   
-
-### Frontend Setup
-
-1. **Navigate to the frontend directory**
-
-   
-   cd ../frontend/src
-   
-
-2. **Install Node.js dependencies**
-
-   
-   npm install
-   
-
-3. **Start the React application**
-
-   
-   npm start
-   
 
 ## Usage
 
-1. **Open the frontend application**
+### Step 1: Prepare Data
 
-   Go to `http://localhost:3000` in your web browser.
+Ensure your candidate data and training data are available in the `data/` directory
 
-2. **Enter a Job Description**
+### Step 2: Train the Language Model
 
-   Enter a job description in the input field and click "Search".
+Fine-tune the language model on your dataset:
 
-3. **View Matching Candidates**
+python job_matcher/scripts/train_llm.py
 
-   The application will display a list of matching candidates based on the job description.
+### Step 3: Run the Command-Line Interface
+Use the CLI to input a job description and retrieve matching candidate profiles:
 
-## File Descriptions
+python job_matcher/scripts/cli.py
 
-- **backend/app.py**: The main Flask application file that handles API requests.
-- **backend/database_setup.py**: Script to load and index candidate data into MongoDB and Elasticsearch.
-- **backend/model_finetuning.py**: Script to fine-tune the BERT model using the `resumes.csv` dataset.
-- **backend/retrieval.py**: Contains functions for retrieving candidate profiles and generating responses.
-- **backend/requirements.txt**: Lists the Python dependencies required for the backend.
-- **frontend/src/App.js**: The main React component for the frontend application.
-- **frontend/src/index.js**: The entry point for the React application.
-- **frontend/package.json**: Lists the Node.js dependencies required for the frontend.
-- **data/RecruterPilot candidate sample input dataset - Sheet1.csv**: Sample input dataset containing candidate profiles.
-- **data/resumes.csv**: Dataset used for fine-tuning the BERT model.
+File Descriptions
+models/:
+   fine_tuned_model/: Directory containing the fine-tuned language model.
+
+scripts/:
+   cli.py: Command-line interface script to interact with the RAG system.
+   preprocess_data.py: Script for preprocessing candidate data.
+   index_data.py: Script for indexing candidate data using FAISS.
+   rag_framework.py: Script implementing the RAG framework.
+   train_llm.py: Script for fine-tuning the language model.
+   requirements.txt: List of required Python packages.
+
+Dependencies:
+   transformers
+   sentence-transformers
+   faiss-cpu
+   pandas
+   numpy
+   scikit-learn
+
+Install these dependencies using the requirements.txt file provided.
