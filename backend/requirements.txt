@@ -1,0 +1,7 @@
+flask
+pymongo
+elasticsearch
+transformers
+sentence-transformers
+scikit-learn
+pandas
