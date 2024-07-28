@@ -1,7 +1,7 @@
-flask
-pymongo
-elasticsearch
 transformers
-sentence-transformers
-scikit-learn
+torch
 pandas
+faiss-cpu
+sentence-transformers
+flask
+flask-cors
