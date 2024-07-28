@@ -2,24 +2,6 @@
 
 This project is a job description matching system that uses a fine-tuned BERT model, Elasticsearch for candidate profile retrieval, and a Flask backend with a React frontend.
 
-## Project Structure
-
-├── backend
-│   ├── app.py
-│   ├── database_setup.py
-│   ├── model_finetuning.py
-│   ├── retrieval.py
-│   ├── requirements.txt
-├── frontend
-│   ├── src
-│   │   ├── App.js
-│   │   ├── index.js
-│   ├── package.json
-├── data
-│   ├── RecruterPilot candidate sample input dataset - Sheet1.csv
-│   ├── resumes.csv
-└── README.md
-
 ## Setup and Installation
 
 ### Prerequisites
